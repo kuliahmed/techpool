@@ -12,4 +12,6 @@
     <string name="remember_login">Ingat saya</string>
     <string name="forgot">Lupa password ?</string>
     <string name="login">Masuk</string>
+    <string name="techpolitan_web">techpolitan.co.id</string>
+    <string name="mobile_apps_v_1_0">Mobile apps v.1.0</string>
 </resources>

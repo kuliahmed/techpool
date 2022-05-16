@@ -11,5 +11,6 @@
     <color name="green">#FF007813</color>
     <color name="peach">#FFF2EEEE</color>
     <color name="gray">#FF5B5959</color>
+    <color name="lightgray">#FFF6F6F6</color>
 
 </resources>
