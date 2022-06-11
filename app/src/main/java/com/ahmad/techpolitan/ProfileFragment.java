@@ -1,6 +1,7 @@
 package com.ahmad.techpolitan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -41,6 +42,7 @@ public class ProfileFragment extends Fragment {
     private TextView tvEmail;
     private TextView tvPhone;
     private TextView tvStatus;
+    private TextView tvKeluar;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -103,6 +105,17 @@ public class ProfileFragment extends Fragment {
         tvEmail = view.findViewById(R.id.tvEmail);
         tvPhone = view.findViewById(R.id.tvPhone);
         tvStatus = view.findViewById(R.id.tvStatus);
+        tvKeluar = view.findViewById(R.id.tvKeluar);
+        tvKeluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedpreferences = getContext().getSharedPreferences("Settings",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.clear().commit();
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -112,8 +125,8 @@ public class ProfileFragment extends Fragment {
         String myID = sharedpreferences.getString(LoginActivity.MY_ID,"4");
         JSONObject obj = new JSONObject();
         obj.put("id", myID);
-// parah si
-         RequestQueue queue = Volley.newRequestQueue(this.getContext());
+
+        RequestQueue queue = Volley.newRequestQueue(this.getContext());
         String SPHERE_URL = "https://nachoscloth.xyz/api/profile";
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST,SPHERE_URL,obj,
                 new Response.Listener<JSONObject>() {

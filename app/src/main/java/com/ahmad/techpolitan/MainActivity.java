@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     SharedPreferences sharedpreferences;
     private EditText usernameField,passwordField;
 
+
     HomeFragment homeFragment = new HomeFragment();
     HistoryFragment historyFragment = new HistoryFragment();
     CameraFragment cameraFragment = new CameraFragment();
