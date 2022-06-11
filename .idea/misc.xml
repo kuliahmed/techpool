@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/activity_login.xml" value="0.27596899224806204" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/bottom_sheet_history_layout.xml" value="0.25" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/fragment_camera.xml" value="0.25" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/fragment_history.xml" value="0.22447916666666667" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/fragment_profile.xml" value="0.17519685039370078" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/fragment_report.xml" value="0.33" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/row_item_history.xml" value="0.33" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/table_view_column_header_layout.xml" value="0.22447916666666667" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/table_view_corner_layout.xml" value="0.22447916666666667" />
+        <entry key="..\:/Ahmed/PS-SMT8/SKRIPSI/RIZKI AHMAD DARMAWAN - 181011402651/TechPolitan/TechPolitan/app/src/main/res/layout/table_view_row_header_layout.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/drawable/bottom_camera_navigation.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/bottom_history_navigation.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/bottom_home_navigation.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/bottom_profile_navigation.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/bottom_report_navigation.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/edittext_outline.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/ic_down.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/ic_up.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/outline_blue_button.xml" value="0.1525" />
+        <entry key="app/src/main/res/drawable/outline_blue_button_selected.xml" value="0.1525" />
+        <entry key="app/src/main/res/drawable/outline_button.xml" value="0.1525" />
+        <entry key="app/src/main/res/drawable/outline_red_button.xml" value="0.131" />
+        <entry key="app/src/main/res/font-v26/kanit.xml" value="0.2824074074074074" />
+        <entry key="app/src/main/res/font/kanit.xml" value="0.2824074074074074" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.5168316831683168" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18355407714843752" />
+        <entry key="app/src/main/res/layout/bottom_sheet_history_layout.xml" value="0.2775652678116509" />
+        <entry key="app/src/main/res/layout/fragment_camera.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.16304347826086957" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22093353271484378" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.29093198992443325" />
+        <entry key="app/src/main/res/layout/fragment_report.xml" value="0.2962569849451161" />
+        <entry key="app/src/main/res/layout/row_item_history.xml" value="0.3259386808975883" />
+        <entry key="app/src/main/res/layout/table_view_cell_layout.xml" value="0.7097229003906251" />
+        <entry key="app/src/main/res/layout/table_view_column_header_layout.xml" value="0.1203125" />
+        <entry key="app/src/main/res/layout/table_view_corner_layout.xml" value="0.1203125" />
+        <entry key="app/src/main/res/layout/table_view_row_header_layout.xml" value="0.1203125" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2578125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
