@@ -113,9 +113,9 @@ public class HistoryObject {
 
         for (int i = 1; i <= historyLenght; i++) {
             if (i < 10)
-                historyObjects.add(new HistoryObject("APPROVED", "08:00:56", "18:23:34", "Home, Bambu Apus Pamulang", "Home, Bambu Apus Pamulang", "Work From Home (WFH)", "Rizkyi Ahmad Darmawan", "11301902", "0" + i + " February 2022"));
+                historyObjects.add(new HistoryObject("APPROVED", "08:00:56", "18:23:34", "Home, Bambu Apus Pamulang", "Home, Bambu Apus Pamulang", "Work From Home (WFH)", "Rizky Ahmad Darmawan", "11301902", "0" + i + " February 2022"));
             else
-                historyObjects.add(new HistoryObject("APPROVED", "08:00:56", "18:23:34", "Home, Bambu Apus Pamulang", "Home, Bambu Apus Pamulang", "Work From Home (WFH)", "Rizkyi Ahmad Darmawan", "11301902", i + " February 2022"));
+                historyObjects.add(new HistoryObject("APPROVED", "08:00:56", "18:23:34", "Home, Bambu Apus Pamulang", "Home, Bambu Apus Pamulang", "Work From Home (WFH)", "Rizky Ahmad Darmawan", "11301902", i + " February 2022"));
         }
 
         return historyObjects;

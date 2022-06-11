@@ -40,7 +40,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, final int position) {
 
-        holder.tvStatus.setText(itemList1.get(position).getStatus());
+        holder.tvStatus.setText(itemList1.get(position).getType());
         holder.tvDate.setText(itemList1.get(position).getDate());
         holder.tvLokasi.setText(itemList1.get(position).getLocationIn());
 
@@ -74,7 +74,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
     private void showBottomSheetDialog(HistoryObject historyObject) {
-        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context);
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.TransparentDialog);
         bottomSheetDialog.setContentView(R.layout.bottom_sheet_history_layout);
 
         TextView tvName = bottomSheetDialog.findViewById(R.id.lblNameValue);
@@ -85,7 +85,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         TextView tvTimeOut = bottomSheetDialog.findViewById(R.id.lblTimeOutValue);
         TextView tvLocationIn = bottomSheetDialog.findViewById(R.id.lblLocationInValue);
         TextView tvLocationOut = bottomSheetDialog.findViewById(R.id.lblLocationOutValue);
-        TextView cvClose = bottomSheetDialog.findViewById(R.id.cvClose);
+        CardView cvClose = bottomSheetDialog.findViewById(R.id.cvClose);
 
         tvName.setText(historyObject.getName());
         tvNIP.setText(historyObject.getNip());

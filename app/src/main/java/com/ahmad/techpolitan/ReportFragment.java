@@ -1,12 +1,20 @@
 package com.ahmad.techpolitan;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import com.ahmad.techpolitan.tableview.TableViewAdapter;
+import com.ahmad.techpolitan.tableview.TableViewListener;
+import com.ahmad.techpolitan.tableview.TableViewModel;
+import com.evrencoskun.tableview.TableView;
+import com.evrencoskun.tableview.pagination.Pagination;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +31,12 @@ public class ReportFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private TableView mTableView;
+    private Pagination mPagination;
+    private TextView tvNext;
+    private TextView tvPrev;
+    private TextView tvPageMesage;
+    TableViewModel tableViewModel;
 
     public ReportFragment() {
         // Required empty public constructor
@@ -59,6 +73,94 @@ public class ReportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_report, container, false);
+        View view = inflater.inflate(R.layout.fragment_report, container, false);
+
+        mTableView = view.findViewById(R.id.tableview);
+        tvNext = view.findViewById(R.id.tvNext);
+        tvPrev = view.findViewById(R.id.tvPrev);
+        tvPageMesage = view.findViewById(R.id.tvPageMesage);
+
+        initializeTableView();
+
+        tvPrev.setOnClickListener(view1 -> previousTablePage());
+        tvNext.setOnClickListener(view1 -> nextTablePage());
+
+        // Create an instance for the TableView pagination and pass the created TableView.
+        mPagination = new Pagination(mTableView);
+
+        // Sets the pagination listener of the TableView pagination to handle
+        // pagination actions. See onTableViewPageTurnedListener variable declaration below.
+        mPagination.setOnTableViewPageTurnedListener(onTableViewPageTurnedListener);
+        tvPrev.performClick();
+        return view;
     }
+
+    private void initializeTableView() {
+// Create TableView View model class  to group view models of TableView
+        tableViewModel = new TableViewModel();
+
+        // Create TableView Adapter
+        TableViewAdapter tableViewAdapter = new TableViewAdapter(tableViewModel);
+
+        mTableView.setAdapter(tableViewAdapter);
+        mTableView.setTableViewListener(new TableViewListener(mTableView));
+
+        // Create an instance of a Filter and pass the TableView.
+        //mTableFilter = new Filter(mTableView);
+
+        // Load the dummy data to the TableView
+        tableViewAdapter.setAllItems(tableViewModel.getColumnHeaderList(), tableViewModel
+                .getRowHeaderList(), tableViewModel.getCellList());
+    }
+
+    // The following four methods below: nextTablePage(), previousTablePage(),
+    // goToTablePage(int page) and setTableItemsPerPage(int itemsPerPage)
+    // are for controlling the TableView pagination.
+    public void nextTablePage() {
+        if (mPagination != null) {
+            mPagination.nextPage();
+        }
+    }
+
+    public void previousTablePage() {
+        if (mPagination != null) {
+            mPagination.previousPage();
+        }
+    }
+
+    public void setTableItemsPerPage(int itemsPerPage) {
+        if (mPagination != null) {
+            mPagination.setItemsPerPage(itemsPerPage);
+        }
+    }
+
+    // Handler for the changing of pages in the paginated TableView.
+    @NonNull
+    private final Pagination.OnTableViewPageTurnedListener onTableViewPageTurnedListener = new
+            Pagination.OnTableViewPageTurnedListener() {
+                @Override
+                public void onPageTurned(int numItems, int itemsStart, int itemsEnd) {
+                    int currentPage = mPagination.getCurrentPage();
+                    int pageCount = mPagination.getPageCount();
+                    tvPrev.setVisibility(View.VISIBLE);
+                    tvNext.setVisibility(View.VISIBLE);
+                    Log.d("CurrentPage", String.valueOf(currentPage));
+
+                    if (currentPage == 1 && pageCount == 1) {
+                        tvPrev.setVisibility(View.INVISIBLE);
+                        tvNext.setVisibility(View.INVISIBLE);
+                    }
+
+                    if (currentPage == 1) {
+                        tvPrev.setVisibility(View.INVISIBLE);
+                    }
+
+                    if (currentPage == pageCount) {
+                        tvNext.setVisibility(View.INVISIBLE);
+                    }
+
+                    tvPageMesage.setText(getString(R.string.table_pagination_details, String.valueOf(itemsStart + 1),
+                            String.valueOf(itemsEnd + 1), String.valueOf(tableViewModel.getRowHeaderList().size())));
+                }
+            };
 }

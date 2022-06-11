@@ -1,12 +1,14 @@
 package com.ahmad.techpolitan;
 
+import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +21,12 @@ public class CameraFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    int selectedType = 0;
+    int typeWFH = 0;
+    int typeWFO = 1;
+    int typeVisit = 2;
+    Context context;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,6 +67,84 @@ public class CameraFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_camera, container, false);
+        View view = inflater.inflate(R.layout.fragment_camera, container, false);
+
+        TextView tvWFH = view.findViewById(R.id.tvWFH);
+        TextView tvWFO = view.findViewById(R.id.tvWFO);
+        TextView tvVisit = view.findViewById(R.id.tvVisit);
+        context = view.getContext();
+
+        tvWFH.setOnClickListener(view13 -> {
+            final int sdk = android.os.Build.VERSION.SDK_INT;
+            if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                tvWFH.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.outline_blue_button_selected));
+                tvWFH.setTextColor(ContextCompat.getColor(context, R.color.white));
+
+                tvWFO.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvWFO.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+
+                tvVisit.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvVisit.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+            } else {
+                tvWFH.setBackground(ContextCompat.getDrawable(context, R.drawable.outline_blue_button_selected));
+                tvWFH.setTextColor(ContextCompat.getColor(context, R.color.white));
+
+                tvWFO.setBackground(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvWFO.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+
+                tvVisit.setBackground(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvVisit.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+            }
+
+        });
+
+        tvWFO.setOnClickListener(view12 -> {
+            final int sdk = android.os.Build.VERSION.SDK_INT;
+            if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                tvWFH.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvWFH.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+
+                tvWFO.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.outline_blue_button_selected));
+                tvWFO.setTextColor(ContextCompat.getColor(context, R.color.white));
+
+                tvVisit.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvVisit.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+            } else {
+                tvWFH.setBackground(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvWFH.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+
+                tvWFO.setBackground(ContextCompat.getDrawable(context, R.drawable.outline_blue_button_selected));
+                tvWFO.setTextColor(ContextCompat.getColor(context, R.color.white));
+
+                tvVisit.setBackground(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvVisit.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+            }
+
+        });
+
+        tvVisit.setOnClickListener(view1 -> {
+            final int sdk = android.os.Build.VERSION.SDK_INT;
+            if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                tvWFH.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvWFH.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+
+                tvWFO.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvWFO.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+
+                tvVisit.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.outline_blue_button_selected));
+                tvVisit.setTextColor(ContextCompat.getColor(context, R.color.white));
+            } else {
+                tvWFH.setBackground(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvWFH.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+
+                tvWFO.setBackground(ContextCompat.getDrawable(context, R.drawable.outline_blue_button));
+                tvWFO.setTextColor(ContextCompat.getColor(context, R.color.purple_500));
+
+                tvVisit.setBackground(ContextCompat.getDrawable(context, R.drawable.outline_blue_button_selected));
+                tvVisit.setTextColor(ContextCompat.getColor(context, R.color.white));
+            }
+
+        });
+        return view;
     }
 }
