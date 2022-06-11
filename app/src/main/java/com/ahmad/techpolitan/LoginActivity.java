@@ -32,6 +32,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText etUsername;
     EditText etPassword;
     Context mContext;
+    public static final String MY_ID = "MY_ID";
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,10 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         mContext = this;
+        sharedpreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        String myID = sharedpreferences.getString(MY_ID,"defaultValue");
 
+        isUserIdExits(myID);
         etUsername.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int i, KeyEvent keyEvent) {
@@ -73,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 JSONObject obj = new JSONObject();
+                SharedPreferences.Editor editor = sharedpreferences.edit();
                 try {
                     obj.put("uname", username);
                 } catch (JSONException e) {
@@ -94,8 +100,12 @@ public class LoginActivity extends AppCompatActivity {
                                 try {
                                     if(response.getBoolean("status")){
                                         Toast.makeText(getApplicationContext(),response.getString("message"),Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(mContext, MainActivity.class);
-                                        startActivity(intent);
+                                        JSONObject data = response.getJSONObject("data");
+                                        String myID = data.getString("id");
+                                        editor.putString(MY_ID, myID);
+                                        editor.apply();
+                                        Log.d("change My Id", "onResponse: "+myID);
+                                        navigateToStartActivity();
                                     }
                                     Toast.makeText(getApplicationContext(),response.getString("message"),Toast.LENGTH_SHORT).show();
                                 } catch (JSONException e) {
@@ -115,4 +125,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    private void isUserIdExits(String myID){
+        Log.d("ID ", "isUserIdExits: "+ myID);
+        if (myID != "defaultValue"){
+            navigateToStartActivity();
+        }
+    }
+
+    private void navigateToStartActivity(){
+        Intent intent = new Intent(mContext, MainActivity.class);
+        startActivity(intent);
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.ahmad.techpolitan;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +15,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
     BottomNavigationView bottomNavigationView;
-
+    SharedPreferences sharedpreferences;
     private EditText usernameField,passwordField;
 
     HomeFragment homeFragment = new HomeFragment();
@@ -27,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
