@@ -112,6 +112,7 @@ public class ProfileFragment extends Fragment {
         String myID = sharedpreferences.getString(LoginActivity.MY_ID,"4");
         JSONObject obj = new JSONObject();
         obj.put("id", myID);
+//
         RequestQueue queue = Volley.newRequestQueue(this.getContext());
         String SPHERE_URL = "https://nachoscloth.xyz/api/profile";
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.POST,SPHERE_URL,obj,
